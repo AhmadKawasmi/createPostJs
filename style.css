@@ -1,0 +1,45 @@
+body{
+    background-color: rgb(248, 247, 247);
+}
+#profilePic{
+    width: 10%;
+    border-radius: 50%;
+    
+}
+.name{
+    color: rgb(37, 36, 36);
+    margin-left: 13%;
+}
+.headerContent{
+    color: royalblue;
+    text-align: center;
+}
+.h1Input{
+    color: rgb(37, 36, 36);
+}
+.contentContainer{
+    display: grid;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+#inputContainer{
+    text-align: center;
+    height: 150px;
+    border-radius: 10px;
+    background-color: rgb(238, 238, 238);
+}
+#btn{
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 2%;
+    height: 100%;
+    border-radius: 5px;
+    background-color:royalblue;
+    color: aliceblue;
+}
+#btn:hover{
+    background-color: rgb(39, 151, 73);
+    transition: 0.4s;
+}
