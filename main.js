@@ -2,7 +2,6 @@ const input = document.querySelector('#inputContainer')
 const btn = document.getElementById('btn')
 const body = document.getElementsByTagName('body')[0]
 
-
 const createPost = function(){
     const content = input.value
     const text = input.value
