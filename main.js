@@ -3,53 +3,48 @@ const btn = document.getElementById('btn')
 const body = document.getElementsByTagName('body')[0]
 
 const createPost = function(){
+    const newPost = document.createElement('div')
     const content = input.value
     const text = input.value
     const img = document.createElement('img')
-    const post = document.createElement('h2')
+    const post = document.createElement('h3')
     const hr = document.createElement('hr')
     const name = document.createElement('h2')
     const like = document.createElement('button')
     const comment = document.createElement('button')
     const share = document.createElement('button')
 
+    newPost.classList.add('newPostForm')
+    like.classList.add('btns')
+    comment.classList.add('btns')
+    share.classList.add('btns')
+    name.classList.add('userName')
+    img.classList.add('userImg')
+    post.classList.add('postContent')
+
     share.innerText = "share"
-    share.style.marginLeft = "10px"
-    share.style.color = "gray"
-    share.style.fontWeight = "bold"
-
     comment.innerText = "Add a comment"
-    comment.style.marginLeft = "10px"
-    comment.style.color = "gray"
-    comment.style.fontWeight = "bold"
-
     like.innerText = "Like"
-    like.style.color = "gray"
-    like.style.fontWeight = "bold"
-    like.style.cursor = "pointer"
+    name.innerText = "Ahmad Kawasmi"
+    post.innerText = text 
+
+    img.src = 'images/nft7.png'
+
+
     like.addEventListener('click', function(){
         if(like.style.color == "gray"){
-            like.style.color = "blue"
+            like.style.color = "white"
+            like.style.backgroundColor = "blue"
             like.innerText = "Liked"
         }else{
             like.style.color = "gray"
+            like.style.backgroundColor = "white"
             like.innerText = "Like"
         }
     })
 
-    post.innerText = text
-
-    name.innerText = "Ahmad Kawasmi"
-    name.style.marginLeft = "10%"
-    name.style.marginTop = "-10%"
-    name.style.marginBottom = "5%"
-
-    img.style.width = "70px"
-    img.style.borderRadius = "50%"
-    img.style.marginBottom = "5%"
-    img.src = 'images/nft7.png'
-
-    body.append(img,name,post,like,comment,share,hr)
+    body.append(newPost)
+    newPost.append(img,name,post,hr,like,comment,share)
     input.value = ''
 }
 btn.addEventListener('click', createPost)
