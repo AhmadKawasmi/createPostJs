@@ -69,7 +69,8 @@ like.addEventListener('click', likeBtn)
 
 comment.addEventListener('click',commentBtn)
 
-    commentSubmit.addEventListener('click', function(){
+
+    const submitComment = function(){
          const commentDivForm = document.createElement('div')
          const commentValue = commentInputValue.value
          const comUserImg = document.createElement('img')
@@ -85,7 +86,9 @@ comment.addEventListener('click',commentBtn)
         newPost.append(commentDivForm)
         commentDivForm.append(comUserImg,commentName,commentContent)
         commentInput.value = ''
-    })
+    }
+
+    commentSubmit.addEventListener('click', submitComment)
 
     body.append(newPost)
     newPost.append(img,name,post,hr,like,comment,share,commentInput,commentSubmit)
