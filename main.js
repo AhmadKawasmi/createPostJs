@@ -1,7 +1,7 @@
 const input = document.querySelector('#inputContainer')
 const btn = document.getElementById('btn')
 const body = document.getElementsByTagName('body')[0]
-const commentInputValue = document.querySelector('.commentInput')
+const commentInputValue = document.getElementsByClassName('commentInput')
 
 const createPost = function(){
     const newPost = document.createElement('div')
@@ -37,8 +37,7 @@ const createPost = function(){
 
     img.src = 'images/nft7.png'
 
-
-    like.addEventListener('click', function(){
+    const likeBtn = function(){
         if(like.style.color == "gray"){
             like.style.color = "white"
             like.style.backgroundColor = "blue"
@@ -48,10 +47,14 @@ const createPost = function(){
             like.style.backgroundColor = "white"
             like.innerText = "Like"
         }
-    })
+    }
 
-    comment.addEventListener('click',function(){
-        if(comment.style.color == "gray"){
+
+like.addEventListener('click', likeBtn)
+
+
+    const commentBtn = function() {
+         if(comment.style.color == "gray"){
             commentInput.style.display ="block"
             commentSubmit.style.display = "block"
             comment.style.backgroundColor = "rgb(22, 44, 107)"
@@ -62,22 +65,25 @@ const createPost = function(){
             comment.style.backgroundColor = "white"
             comment.style.color = "gray"
         }
-     
-    })
+    }
+
+comment.addEventListener('click',commentBtn)
 
     commentSubmit.addEventListener('click', function(){
-         const commentDiv = document.getElementById('div')
+         const commentDivForm = document.createElement('div')
          const commentValue = commentInputValue.value
          const comUserImg = document.createElement('img')
          const commentContent = document.createElement('h3')
          const commentName = document.createElement('h2')
 
-        commentContent.innerText = commentValue
-        comUserImg.src = 'images/nft7.png'
+         commentContent.innerText = commentValue
+         comUserImg.src = 'images/nft7.png'
 
+         commentDivForm.classList.add('commentDivForm')
+         comUserImg.classList.add('commentImg')
         
-        newPost.append(commentDiv)
-        commentDiv.append(comUserImg,commentName,commentContent)
+        newPost.append(commentDivForm)
+        commentDivForm.append(comUserImg,commentName,commentContent)
         commentInput.value = ''
     })
 
@@ -85,6 +91,8 @@ const createPost = function(){
     newPost.append(img,name,post,hr,like,comment,share,commentInput,commentSubmit)
     input.value = ''
 }
+
+
 btn.addEventListener('click', createPost)
 
 input.addEventListener('keydown', function (event) {
